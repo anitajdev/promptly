@@ -17,7 +17,7 @@ const Nav = () => {
       setProviders(response);
 
     }
-    setProviders();
+    setUpProviders();
   }, [])
 
   return (
@@ -47,7 +47,7 @@ const Nav = () => {
 
             <Link href="/profile">
               <Image 
-                src="/assets/images/logo.svg"
+                src={session?.user.image}
                 width={37}
                 height={37}
                 className="rounded-full"
@@ -63,7 +63,7 @@ const Nav = () => {
                   type="button"
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
-                  className="black-btn"
+                  className="black_btn"
                 >
                   Sign In
                 </button>
@@ -77,7 +77,7 @@ const Nav = () => {
         {session?.user ? (
           <div className="flex">
             <Image 
-                src="/assets/images/logo.svg"
+                src={session?.user.image}
                 width={37}
                 height={37}
                 className="rounded-full"
@@ -124,7 +124,7 @@ const Nav = () => {
                   type="button"
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
-                  className="black-btn"
+                  className="black_btn"
                 >
                   Sign In
                 </button>
