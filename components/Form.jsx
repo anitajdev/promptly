@@ -46,7 +46,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
           <input
             value={post.tag}
-            onChange={(e) => addSymbolToTagValue(e)}
+            onChange={addSymbolToTagValue}
             placeholder="#tag"
             required
             className="form_input"
