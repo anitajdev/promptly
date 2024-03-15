@@ -1,6 +1,17 @@
 import Link from 'next/link';
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+
+  const addSymbolToTagValue = (e) => {
+    const tagValue = e.target.value;
+    if(tagValue.includes('#')) {
+      setPost({ ...post, tag: tagValue });
+    }
+    else {
+      setPost({ ...post, tag: `#${tagValue}`});
+    }
+  }
+
   return (
     <section className="w-full max-w-full flex-start flex-col">
       <h1 className="head_text text-left">
@@ -35,7 +46,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
 
           <input
             value={post.tag}
-            onChange={(e) => setPost({ ...post, tag: e.target.value })}
+            onChange={(e) => addSymbolToTagValue(e)}
             placeholder="#tag"
             required
             className="form_input"
